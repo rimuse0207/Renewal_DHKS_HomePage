@@ -2,6 +2,44 @@ import React from 'react';
 import classNames from 'classnames';
 import './FirstPageMainPage.scss';
 import { SlidesDataTypes } from './FirstPageMainPageTypes';
+import styled from 'styled-components';
+
+const FirstPageMainPageMainDivBox = styled.div`
+    /* .Slider_Container {
+        width: 80%;
+
+        height: 70vh;
+        background: #fff;
+        opacity: 0.1;
+        position: absolute;
+        border-radius: 5px;
+    } */
+    .slider__slide-subheading {
+        @media only screen and (min-width: 800px) and (max-width: 1100px) {
+            font-size: 20px;
+        }
+        @media only screen and (max-width: 800px) {
+            font-size: 10px;
+        }
+    }
+    .slider__slide-heading {
+        @media only screen and (min-width: 800px) and (max-width: 1100px) {
+            font-size: 60px;
+        }
+
+        @media only screen and (max-width: 800px) {
+            font-size: 30px;
+        }
+    }
+    .slider__slide-subheading {
+        position: relative;
+        .subMainTitle {
+            font-size: 10px;
+            position: absolute;
+            top: 0px;
+        }
+    }
+`;
 
 type FirstPageMainPagePropsTypes = {
     slides: SlidesDataTypes[];
@@ -64,7 +102,7 @@ class FirstPageMainPage extends React.Component<FirstPageMainPagePropsTypes, Fir
     render() {
         const { activeSlide, prevSlide, sliderReady } = this.state;
         return (
-            <div className={classNames('slider', { 's--ready': sliderReady })}>
+            <FirstPageMainPageMainDivBox className={classNames('slider', { 's--ready': sliderReady })}>
                 {/* <p className="slider__top-heading">DHKS</p> */}
                 <div className="slider__slides">
                     {this.props.slides.map((slide, index) => (
@@ -73,13 +111,17 @@ class FirstPageMainPage extends React.Component<FirstPageMainPagePropsTypes, Fir
                             key={slide.city}
                         >
                             <div className="slider__slide-content">
-                                <h3 className="slider__slide-subheading">{slide.country || slide.city}</h3>
+                                <div className="Slider_Container"></div>
+                                {/* <h3 className="slider__slide-subheading">
+                                    {slide.country}
+                                    {index === 0 ? <></> : <span className="subMainTitle">{'(주)'}</span>}
+                                </h3> */}
                                 <h2 className="slider__slide-heading">
                                     {slide.city.split('').map(l => (
                                         <span>{l}</span>
                                     ))}
+                                    {index === 0 ? <span className="subMainTitle">{'(주)'}</span> : <></>}
                                 </h2>
-                                {/* <p className="slider__slide-readmore">read more</p> */}
                             </div>
                             <div className="slider__slide-parts">
                                 {[...Array(this.IMAGE_PARTS).fill(1)].map((x, i) => (
@@ -93,7 +135,7 @@ class FirstPageMainPage extends React.Component<FirstPageMainPagePropsTypes, Fir
                 </div>
                 <div className="slider__control" onClick={() => this.changeSlides(-1)} />
                 <div className="slider__control slider__control--right" onClick={() => this.changeSlides(1)} />
-            </div>
+            </FirstPageMainPageMainDivBox>
         );
     }
 }

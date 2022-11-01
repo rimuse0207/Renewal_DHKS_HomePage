@@ -22,3 +22,9 @@ code {
     font-weight: normal;
     font-style: normal;
 }
+
+* {
+    list-style: none;
+}
+body {
+}

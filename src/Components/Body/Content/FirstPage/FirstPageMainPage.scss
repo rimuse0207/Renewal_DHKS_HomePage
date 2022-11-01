@@ -111,7 +111,6 @@ $letterStagger: 0.1s;
         }
 
         &-subheading {
-            font-family: KOTRA_BOLD-Bold;
             margin-bottom: 20px;
             font-size: 30px;
             letter-spacing: 2px;
@@ -121,10 +120,9 @@ $letterStagger: 0.1s;
         }
 
         &-heading {
-            font-family: ChosunGs;
-            opacity: 0.7;
+            opacity: 1;
             $fontSize: 80px;
-
+            font-family: 맑은고딕, 윤고딕, GulimChe;
             display: flex;
             margin-bottom: 20px;
             font-size: $fontSize;
