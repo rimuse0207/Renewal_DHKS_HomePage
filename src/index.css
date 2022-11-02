@@ -23,8 +23,38 @@ code {
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BCcardB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.1/BCcardB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     list-style: none;
 }
 body {
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    color: black;
+}
+
+a:hover,
+a:active {
+    text-decoration: none;
+    color: black;
+}
+a:visited {
+    text-decoration: none;
+    color: black;
 }

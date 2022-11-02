@@ -79,16 +79,25 @@ const SecondPageMainPageMainDivBox = styled.div<{ currentPage: number }>`
                 .SecondPage_Float_Left_Icons {
                 }
             }
+            @media only screen and (max-width: 500px) {
+                height: 120px;
+            }
             .SecondPage_Float_Left_Icons {
                 font-size: 1.5em;
                 margin-right: 30px;
                 height: 100%;
                 color: #ff8000;
+                @media only screen and (max-width: 500px) {
+                    font-size: 1.3em;
+                }
             }
             h2 {
                 font-size: 2.5em;
                 line-height: 40px;
                 font-family: KOTRA_BOLD-Bold;
+                @media only screen and (max-width: 500px) {
+                    font-size: 1.8em;
+                }
             }
         }
         .SecondPage_Float_Right {
@@ -123,6 +132,13 @@ const SecondPageMainPageMainDivBox = styled.div<{ currentPage: number }>`
             @media only screen and (max-width: 1100px) {
                 width: 100%;
             }
+            @media only screen and (max-width: 500px) {
+                min-width: auto;
+                p {
+                    width: 95%;
+                    font-size: 0.7em;
+                }
+            }
         }
     }
 
@@ -133,9 +149,20 @@ const SecondPageMainPageMainDivBox = styled.div<{ currentPage: number }>`
         flex-wrap: wrap;
         margin: 0 auto;
         justify-content: space-around;
-        max-width: 1300px;
+
         @media only screen and (max-width: 800px) {
             width: 100%;
+        }
+        @media only screen and (max-width: 500px) {
+            min-width: 170px;
+            justify-content: center;
+            .first_cotainer {
+                .first {
+                    h2 {
+                        font-size: 0.8em;
+                    }
+                }
+            }
         }
         .first_cotainer {
             border: 1px solid lightgray;
@@ -147,6 +174,11 @@ const SecondPageMainPageMainDivBox = styled.div<{ currentPage: number }>`
             border-radius: 5px;
             position: relative;
             font-family: kotra_bold-bold;
+
+            @media only screen and (max-width: 500px) {
+                min-width: 170px;
+            }
+
             .Hover_Detail,
             .Hover_SubName {
                 display: none;
@@ -157,12 +189,10 @@ const SecondPageMainPageMainDivBox = styled.div<{ currentPage: number }>`
                 .Hover_SubName {
                     display: block;
                     position: absolute;
-                    /* content: ''; */
                     color: white;
                     width: 100%;
                     height: 0%;
                     background-color: rgba(0, 0, 0, 0.8);
-                    /* opacity: 0.5; */
                     left: 0;
                     bottom: 0;
                     animation-name: slideUp;
@@ -173,6 +203,9 @@ const SecondPageMainPageMainDivBox = styled.div<{ currentPage: number }>`
 
                     h2 {
                         font-size: 1.5em;
+                        @media only screen and (max-width: 500px) {
+                            font-size: 0.9em;
+                        }
                     }
                     .Hover_Detail {
                         display: block;
@@ -182,6 +215,10 @@ const SecondPageMainPageMainDivBox = styled.div<{ currentPage: number }>`
                         padding-right: 10px;
                         font-family: ChosunSm;
                         line-height: 30px;
+                        @media only screen and (max-width: 500px) {
+                            font-size: 0.5em;
+                            line-height: 20px;
+                        }
                     }
                     ::after {
                         background-color: (rgba(0, 0, 0, 5));
@@ -201,7 +238,9 @@ const SecondPageMainPageMainDivBox = styled.div<{ currentPage: number }>`
             .first {
                 height: 100%;
                 background-size: cover;
-
+                .Main_Title_Text {
+                    font-family: KOTRA_BOLD-Bold;
+                }
                 :hover {
                     background-color: black;
                 }
@@ -294,7 +333,7 @@ const SecondPageMainPage = ({ currentPage }: NavigationMainPageProps) => {
                     return (
                         <div className="first_cotainer">
                             <div className="first" style={{ backgroundImage: `url(/logo/${list.imgSrc})` }}>
-                                <h2>{list.name}</h2>
+                                <h2 className="Main_Title_Text">{list.name}</h2>
                                 <div className="Hover_SubName">
                                     <h2>{list.name}</h2>
                                     <div className="Hover_Detail">

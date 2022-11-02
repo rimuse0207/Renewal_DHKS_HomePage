@@ -7,6 +7,7 @@ import ThirdPageMainPage from './Content/ThirdPage/ThirdPageMainPage';
 import FourthPageMainPage from './Content/FourthPage/FourthPageMainPage';
 import NavigationMainPage from './Navigation/NavigationMainPage';
 import ReactPageScroller from 'react-page-scroller';
+import FivePageMainPage from './Content/FivePage/FivePageMainPage';
 
 const BodyMainPageMainDivBox = styled.div`
     overflow-y: auto !important;
@@ -84,6 +85,7 @@ const BodyMainPage = () => {
                 <SecondPageMainPage currentPage={currentPage}></SecondPageMainPage>
                 <ThirdPageMainPage currentPage={currentPage}></ThirdPageMainPage>
                 <FourthPageMainPage></FourthPageMainPage>
+                <FivePageMainPage></FivePageMainPage>
             </ReactPageScroller>
         </BodyMainPageMainDivBox>
     );

@@ -92,7 +92,7 @@ const ThirdPageMainPageMainDivBox = styled.div`
                             font-size: 18px;
                             line-height: 1.44;
                             color: #fff;
-                            font-weight: 400;
+                            font-family: GangwonEduPowerExtraBoldA;
                         }
                         @media only screen and (min-width: 800px) and (max-width: 1500px) {
                             h5 {

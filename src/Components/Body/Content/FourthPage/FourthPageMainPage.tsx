@@ -14,13 +14,14 @@ const FourthPageMainPageMainDivBox = styled.div<{ currentPage: number }>`
         top: 0;
         left: 0;
         z-index: -1;
-        opacity: 0.8;
+        opacity: 0.7;
     }
 
     .FourthPage_Main_Title {
         font-size: 2em;
         color: #464646;
-        margin-bottom: 30px;
+        margin-bottom: 100px;
+        font-family: ChosunSm;
     }
 
     .SecondPage_Relative_Container {
@@ -187,12 +188,12 @@ const FourthPageMainPage = () => {
         <FourthPageMainPageMainDivBox currentPage={4}>
             <div style={{ height: '20vh' }}></div>
             <div style={{ width: '80%', margin: '0 auto' }}>
-                <div style={{ color: 'gray', fontWeight: 'bolder', marginTop: '5px', marginBottom: '5px' }}>관계사</div>
+                <div style={{ color: 'gray', fontWeight: 'bolder', marginTop: '5px', marginBottom: '5px' }}>RELATIVE</div>
                 <div className="FourthPage_Main_Title">
                     <h2>
-                        디에이치케이솔루션은 하단의
+                        <span style={{ fontFamily: '윤고딕218,맑은고딕' }}>디에이치케이솔루션</span>와 함께하는
                         <br />
-                        관계사와 일을 함께하고 있습니다.
+                        <span style={{ color: '#3178AD' }}>관계사</span>를 만나보세요
                     </h2>
                 </div>
                 <div className="SecondPage_Relative_Container">

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const NavigationMainPageMainDivBox = styled.div<{ currentPage: number }>`
     height: 100px;
@@ -7,7 +8,7 @@ const NavigationMainPageMainDivBox = styled.div<{ currentPage: number }>`
     top: 0px;
     z-index: 100;
     width: 100%;
-
+    background-color: ${props => (props.currentPage !== 0 ? '#fff' : '')};
     .Navigation_Main_Hover_Container {
         display: none;
     }
@@ -17,7 +18,7 @@ const NavigationMainPageMainDivBox = styled.div<{ currentPage: number }>`
         transition: background-color 0.5s;
 
         .MenuBar_Menu_Cotent_Container {
-            width: calc(90% - 300px);
+            /* width: calc(90% - 300px); */
             height: 100%;
             ul {
                 width: 100%;
@@ -26,9 +27,15 @@ const NavigationMainPageMainDivBox = styled.div<{ currentPage: number }>`
                 justify-content: space-around;
                 align-items: center;
                 color: black !important;
-                li {
+                .Main_Nav_Title_Lists {
                     min-width: 100px;
+                    a {
+                        color: black;
+                    }
                     :hover {
+                        a {
+                            border-bottom: 5px solid #304d9a;
+                        }
                         color: #304d9a;
                         cursor: pointer;
                     }
@@ -41,7 +48,7 @@ const NavigationMainPageMainDivBox = styled.div<{ currentPage: number }>`
             width: 100%;
             height: 100%;
             display: flex;
-
+            justify-content: space-between;
             animation-duration: 0.5s;
             animation-name: slidein;
             @keyframes slidein {
@@ -56,7 +63,7 @@ const NavigationMainPageMainDivBox = styled.div<{ currentPage: number }>`
                 }
             }
             .MenuBar_Logo_Container {
-                width: 300px;
+                width: 200px;
                 text-align: center;
                 padding-top: 20px;
                 img {
@@ -64,8 +71,10 @@ const NavigationMainPageMainDivBox = styled.div<{ currentPage: number }>`
                 }
             }
             .MenuBar_Menu_Cotent_Container {
-                width: calc(90% - 300px);
+                /* width: calc(90% - 300px); */
+                width: 33%;
                 height: 100%;
+                font-family: GangwonEduPowerExtraBoldA;
                 ul {
                     width: 100%;
                     height: 100%;
@@ -73,6 +82,7 @@ const NavigationMainPageMainDivBox = styled.div<{ currentPage: number }>`
                     justify-content: space-around;
                     align-items: center;
                     color: black !important;
+
                     li {
                         min-width: 100px;
                         width: 100%;
@@ -80,11 +90,29 @@ const NavigationMainPageMainDivBox = styled.div<{ currentPage: number }>`
                         font-size: 1em;
                         font-weight: bolder;
                         height: 100%;
-
+                        display: flex;
+                        flex-flow: wrap;
+                        padding-top: 5px;
                         a {
+                            width: 100%;
                             display: block;
                             margin-top: 5px;
                             margin-bottom: 5px;
+                            color: black;
+                            :hover {
+                                color: #304d9a;
+                                position: relative;
+
+                                ::after {
+                                    content: '';
+                                    position: absolute;
+                                    left: 0px;
+                                    top: 10px;
+                                    width: 100%;
+                                    height: 10px;
+                                    background: linear-gradient(to top, #304d9a 20%, transparent 20%);
+                                }
+                            }
                         }
                         :hover {
                             cursor: pointer;
@@ -99,17 +127,21 @@ const NavigationMainPageMainDivBox = styled.div<{ currentPage: number }>`
         width: 100%;
         height: 100%;
         display: flex;
+        justify-content: space-between;
         .MenuBar_Logo_Container {
-            width: 300px;
+            width: 200px;
             text-align: center;
             padding-top: 20px;
             img {
-                width: 150px;
+                width: 120px;
             }
         }
         .MenuBar_Menu_Cotent_Container {
-            width: calc(90% - 300px);
+            /* width: calc(90% - 300px); */
+            width: 33%;
+
             height: 100%;
+            font-family: GangwonEduPowerExtraBoldA;
             ul {
                 width: 100%;
                 height: 100%;
@@ -117,6 +149,7 @@ const NavigationMainPageMainDivBox = styled.div<{ currentPage: number }>`
                 justify-content: space-around;
                 align-items: center;
                 color: ${props => (props.currentPage === 0 ? '#fff' : 'black')};
+
                 li {
                     min-width: 100px;
                     width: 100%;
@@ -130,6 +163,7 @@ const NavigationMainPageMainDivBox = styled.div<{ currentPage: number }>`
                         align-items: center;
                         height: 100%;
                         justify-content: center;
+                        color: ${props => (props.currentPage === 0 ? '#fff' : 'black')};
                     }
                 }
             }
@@ -147,27 +181,26 @@ const NavigationMainPage = ({ currentPage }: NavigationMainPageProps) => {
         <NavigationMainPageMainDivBox currentPage={currentPage}>
             <div className="Navigation_Main_Container">
                 <div className="MenuBar_Logo_Container">
-                    <img src={'/logo/DHKS.png'}></img>
+                    <Link to="/">
+                        <img src={'/logo/DHKS.png'}></img>
+                    </Link>
                 </div>
                 <div className="MenuBar_Menu_Cotent_Container">
                     <ul>
-                        <li>
-                            <a>회사소개</a>
+                        <li className="Main_Nav_Title_Lists">
+                            <Link to="/Company/Intro">회사소개</Link>
                             <span className="hover_line"></span>
                         </li>
-                        <li>
+                        <li className="Main_Nav_Title_Lists">
                             <a>제품소개</a>
                             <span className="hover_line"></span>
                         </li>
-                        <li>
-                            <a>자료실</a>
-                            <span className="hover_line"></span>
-                        </li>
-                        <li>
+
+                        <li className="Main_Nav_Title_Lists">
                             <a>고객지원</a>
                             <span className="hover_line"></span>
                         </li>
-                        <li>
+                        <li className="Main_Nav_Title_Lists">
                             <a>채용공고</a>
                             <span className="hover_line"></span>
                         </li>
@@ -179,16 +212,14 @@ const NavigationMainPage = ({ currentPage }: NavigationMainPageProps) => {
                 <div className="MenuBar_Menu_Cotent_Container">
                     <ul>
                         <li>
-                            <a>인사말</a>
+                            <Link to="/Company/Intro">인사말</Link>
                             <a>연혁</a>
                             <a>오시는길</a>
                         </li>
                         <li>
                             <a>제품소개</a>
                         </li>
-                        <li>
-                            <a>자료실</a>
-                        </li>
+
                         <li>
                             <a>부문별담당자</a>
                             <a>공지사항</a>

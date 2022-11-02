@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import BodyMainPage from './Components/Body/BodyMainPage';
+import RouterPage from './Components/RouterPage';
 
 function App() {
     return (
         <div className="App">
-            <BodyMainPage></BodyMainPage>
+            <RouterPage></RouterPage>
         </div>
     );
 }
